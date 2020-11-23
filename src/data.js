@@ -10,7 +10,7 @@ export default {
 			price: 50,
 		},
 	],
-	dought: [
+	dough: [
 		{
 			id: 1,
 			value: 'Тонкое',

@@ -11,7 +11,6 @@ import NotFoundPage from './pages/NotFoundPage';
 
 const App = () => {
 	return (
-		// Routes
 		<Switch>
 			<Route exact path="/">
 				<ProductBuilder />
