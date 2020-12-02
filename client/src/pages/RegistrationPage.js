@@ -15,12 +15,12 @@ export default () => {
 					name="login"
 					ref={register({
 						required: {
-							value: true,
+							slug: true,
 							message:
 								'Данное поле является обязательным для заполнения',
 						},
 						minLength: {
-							value: 4,
+							slug: 4,
 							message: 'Минимальная длина логина - 4 символа',
 						},
 					})}
@@ -34,7 +34,7 @@ export default () => {
 					name="password"
 					ref={register({
 						required: {
-							value: true,
+							slug: true,
 							message:
 								'Данное поле является обязательным для заполнения',
 						},
