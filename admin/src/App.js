@@ -3,14 +3,22 @@ import { useForm } from 'react-hook-form';
 
 const App = () => {
 	const { register, handleSubmit } = useForm();
-	const onSubmit = handleSubmit((data) => {
-		fetch('http://localhost:3000/ingredients', {
+	const onSubmit = handleSubmit(async (data) => {
+		const formData = new FormData();
+
+		formData.append('name', data.name);
+		formData.append('slug', data.slug);
+		formData.append('price', data.price);
+		formData.append('category', data.category);
+		formData.append('image', data.image[0]);
+
+		const response = await fetch('http://localhost:3000/ingredients', {
 			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json; charset=UTF-8',
-			},
-			body: JSON.stringify(data),
-		}).then((response) => console.log(response));
+			body: formData,
+		});
+		const responseData = await response.json();
+
+		console.log(responseData);
 	});
 
 	return (
