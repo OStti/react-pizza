@@ -5,7 +5,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import ProductProvider from './productContext';
 
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -17,5 +16,3 @@ ReactDOM.render(
 	</React.StrictMode>,
 	document.getElementById('root')
 );
-
-reportWebVitals();
