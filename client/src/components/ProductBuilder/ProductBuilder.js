@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Button from '../Button';
-import { useProductContext } from '../../productContext';
 import PIZZA_DATA from '../../pizzaData';
+import { createOrder } from '../../api';
+import calcTotalPrice, { getObjFromData } from '../../util/calcTotalPrice';
 
 const { SIZE, DOUGH, SAUCES, CHEESES, VEGETABLES, MEAT } = PIZZA_DATA;
 
 const ProductBuilder = () => {
 	const history = useHistory();
-	const { setProduct } = useProductContext();
 
 	const [totalPrice, setTotalPrice] = useState(0);
 
@@ -26,56 +26,17 @@ const ProductBuilder = () => {
 
 	const watchAllFields = watch();
 
-	const onSubmit = (data) => {
-		setProduct(data);
+	const onSubmit = handleSubmit((data) => {
+		createOrder(data);
 		history.push('/checkout');
-	};
-
-	const getMergedData = (data) => {
-		const result = [];
-		const values = Object.values(data);
-
-		values.forEach((arr) => arr.forEach((obj) => result.push(obj)));
-
-		return result;
-	};
-
-	const getObjFromData = (value, key) => {
-		const item = getMergedData(PIZZA_DATA).find(
-			({ slug }) => slug === value
-		);
-
-		return key ? item[key] : item;
-	};
-
-	const getCurrentPrices = () => {
-		const values = Object.values(watchAllFields);
-
-		return values.map((item) => {
-			if (typeof item === 'string') {
-				const { price } = getObjFromData(item);
-
-				return price !== undefined ? price : 0;
-			}
-
-			return item.reduce((acc, value) => {
-				const { price } = getObjFromData(value);
-
-				return price !== undefined ? acc + price : acc;
-			}, 0);
-		});
-	};
-
-	const getTotalPrice = () => {
-		return getCurrentPrices().reduce((acc, value) => acc + value, 0);
-	};
+	});
 
 	useEffect(() => {
-		setTotalPrice(getTotalPrice() + 200);
+		setTotalPrice(calcTotalPrice(watchAllFields) + 200);
 	}, [watchAllFields]);
 
 	return (
-		<form className="product-builder" onSubmit={handleSubmit(onSubmit)}>
+		<form className="product-builder" onSubmit={onSubmit}>
 			<div className="product-builder__selected">
 				{getObjFromData(watchAllFields.size, 'name')}
 				{getObjFromData(watchAllFields.dough, 'name')}

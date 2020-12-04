@@ -5,8 +5,9 @@ import ProductBuilder from './components/ProductBuilder';
 import CheckoutPage from './pages/CheckoutPage';
 import LoginPage from './pages/LoginPage';
 import OrderListPage from './pages/OrderListPage';
-import OrderingPage from './pages/OrderingPage';
+import OrderPage from './pages/OrderPage';
 import RegistrationPage from './pages/RegistrationPage';
+import TopingsListPage from './pages/TopingsListPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 const App = () => {
@@ -24,11 +25,14 @@ const App = () => {
 			<Route path="/order-list">
 				<OrderListPage />
 			</Route>
-			<Route path="/ordering">
-				<OrderingPage />
+			<Route path="/order">
+				<OrderPage />
 			</Route>
 			<Route path="/registration">
 				<RegistrationPage />
+			</Route>
+			<Route path="/topings-list">
+				<TopingsListPage />
 			</Route>
 			<Route>
 				<NotFoundPage />
