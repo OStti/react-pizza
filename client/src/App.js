@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import ProductBuilder from './components/ProductBuilder';
+import PizzaConstructor from './components/PizzaConstructor';
 import CheckoutPage from './pages/CheckoutPage';
 import LoginPage from './pages/LoginPage';
 import OrderListPage from './pages/OrderListPage';
@@ -14,7 +14,7 @@ const App = () => {
 	return (
 		<Switch>
 			<Route exact path="/">
-				<ProductBuilder />
+				<PizzaConstructor />
 			</Route>
 			<Route path="/checkout">
 				<CheckoutPage />
