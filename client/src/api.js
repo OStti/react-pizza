@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000';
+export const API_URL = 'https://41fin.sse.codesandbox.io';
 
 export const createOrder = async (data) => {
   const response = await fetch(`${API_URL}/orders`, {

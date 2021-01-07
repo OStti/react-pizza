@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({ type = 'button', children }) => {
-  return (
-    <button type={type === 'submit' ? 'submit' : 'button'}>{children}</button>
-  );
+import StyledButton from './styledComponents';
+
+const Button = ({ children, ...rest }) => {
+  return <StyledButton {...rest}>{children}</StyledButton>;
 };
 
 Button.propTypes = {

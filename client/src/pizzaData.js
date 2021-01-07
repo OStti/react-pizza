@@ -47,6 +47,30 @@ export default {
       slug: 'hot',
       category: 'sauces',
     },
+    {
+      id: 4,
+      name: 'Грибной',
+      slug: 'mushroom',
+      category: 'sauces',
+    },
+    {
+      id: 5,
+      name: 'Чесночный',
+      slug: 'garlic',
+      category: 'sauces',
+    },
+    {
+      id: 6,
+      name: 'Кисло-сладкий',
+      slug: 'sweetSour',
+      category: 'sauces',
+    },
+    {
+      id: 7,
+      name: 'Горчичный',
+      slug: 'mustard',
+      category: 'sauces',
+    },
   ],
   CHEESES: [
     {
@@ -93,6 +117,34 @@ export default {
       price: 29,
       category: 'vegetables',
     },
+    {
+      id: 4,
+      name: 'Ананасы',
+      slug: 'pineapple',
+      price: 29,
+      category: 'vegetables',
+    },
+    {
+      id: 5,
+      name: 'Оливки',
+      slug: 'olives',
+      price: 29,
+      category: 'vegetables',
+    },
+    {
+      id: 6,
+      name: 'Лук',
+      slug: 'onion',
+      price: 29,
+      category: 'vegetables',
+    },
+    {
+      id: 7,
+      name: 'Брокколи',
+      slug: 'broccoli',
+      price: 29,
+      category: 'vegetables',
+    },
   ],
   MEAT: [
     {
@@ -113,6 +165,20 @@ export default {
       id: 3,
       name: 'Ветчина',
       slug: 'ham',
+      price: 29,
+      category: 'meat',
+    },
+    {
+      id: 4,
+      name: 'Курица',
+      slug: 'chicken',
+      price: 29,
+      category: 'meat',
+    },
+    {
+      id: 5,
+      name: 'Салями',
+      slug: 'salami',
       price: 29,
       category: 'meat',
     },
