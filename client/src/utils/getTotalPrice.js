@@ -1,6 +1,6 @@
 import PIZZA_DATA from '../pizzaData';
 
-const findEl = (propFromData, propFromWatch) => {
+export const findEl = (propFromData, propFromWatch) => {
   return propFromData.find(({ slug }) => slug === propFromWatch);
 };
 
@@ -9,7 +9,7 @@ const getPrice = (propFromData, propFromWatch) => {
     return findEl(propFromData, propFromWatch).price || 0;
   }
 
-  return propFromWatch.length
+  return propFromWatch && propFromWatch.length
     ? propFromWatch
         .map((item) => findEl(propFromData, item).price || 0)
         .reduce((acc, value) => acc + value, 0)
